@@ -8,7 +8,8 @@ macro(fetch_googletest _download_module_path _download_root)
         ${_download_module_path}/googletest-download.cmake
         ${_download_root}/CMakeLists.txt
         @ONLY
-        )
+    )
+
     unset(GOOGLETEST_DOWNLOAD_ROOT)
 
     execute_process(
@@ -16,17 +17,19 @@ macro(fetch_googletest _download_module_path _download_root)
             "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
         WORKING_DIRECTORY
             ${_download_root}
-        )
+    )
+
     execute_process(
         COMMAND
             "${CMAKE_COMMAND}" --build .
         WORKING_DIRECTORY
             ${_download_root}
-        )
+    )
 
     # adds the targers: gtest, gtest_main, gmock, gmock_main
     add_subdirectory(
         ${_download_root}/googletest-src
         ${_download_root}/googletest-build
-        )
+    )
 endmacro()
+

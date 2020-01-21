@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 project(gtest-demo CXX)
+set(CMAKE_CXX_STANDARD 14)
 
 # place binaries and libraries according to GNU standards
 include(GNUInstallDirs)
@@ -19,7 +20,7 @@ include(cmake/googletest.cmake)
 fetch_googletest(
     ${PROJECT_SOURCE_DIR}/cmake
     ${PROJECT_BINARY_DIR}/googletest
-    )
+)
 
 enable_testing()
 add_subdirectory(test)
